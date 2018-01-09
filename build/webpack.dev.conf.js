@@ -1,11 +1,9 @@
-const path = require('path')
 const webpack = require('webpack')
 const merge = require('webpack-merge')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const utils = require('./utils')
 const baseWebpackConf = require('./webpack.base.conf.js')
-console.log(__dirname)
-console.log(utils.resolvePath('src/components'))
+
 module.exports = merge(baseWebpackConf, {
     devServer: {
         host: '0.0.0.0',
