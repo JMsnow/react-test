@@ -5,6 +5,7 @@ import request from '@/utils/request'
 class Login extends React.Component {
     componentWillMount() {
         console.log(request.getHost())
+        debug.log(4545)
     }
 
     render() {

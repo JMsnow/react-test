@@ -22,5 +22,6 @@ module.exports = merge(baseWebpackConf, {
 			comments: false,
 			sourceMap: true
 		})
-    ]
+    ],
+    devtool: '#source-map'
 })
