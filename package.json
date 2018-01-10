@@ -6,7 +6,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "cross-env NODE_ENV=development webpack-dev-server --colors --config build/webpack.dev.conf.js",
-    "build": "cross-env NODE_ENV=product webpack --progress --profile --colors --config build/webpack.prod.conf.js"
+    "sit": "cross-env NODE_ENV=sit webpack --progress --profile --colors --config build/webpack.prod.conf.js",
+    "uat": "cross-env NODE_ENV=uat webpack --progress --profile --colors --config build/webpack.prod.conf.js",
+    "build": "cross-env NODE_ENV=production webpack --progress --profile --colors --config build/webpack.prod.conf.js"
   },
   "author": "",
   "license": "ISC",

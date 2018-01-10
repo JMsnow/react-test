@@ -1,7 +1,8 @@
-const path = require('path')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
+const webpack = require('webpack')
 const utils = require('./utils')
-const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const config = require('./config')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const ExtractTextPlugin = require("extract-text-webpack-plugin")
 
 const extractSass = new ExtractTextPlugin({
     filename: "[name].[contenthash].css",
@@ -30,6 +31,9 @@ module.exports = {
         ]
     },
     plugins: [
+        new webpack.DefinePlugin({
+			HOST: JSON.stringify(config.host)
+		}),
         new HtmlWebpackPlugin({
             template: utils.resolvePath('index.html'),
 			filename: 'index.html',
