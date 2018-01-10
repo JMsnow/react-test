@@ -1,6 +1,5 @@
 const webpack = require('webpack')
 const merge = require('webpack-merge')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
 const utils = require('./utils')
 const baseWebpackConf = require('./webpack.base.conf.js')
 
@@ -14,11 +13,6 @@ module.exports = merge(baseWebpackConf, {
     },
     plugins: [
         new webpack.HotModuleReplacementPlugin(),
-        new HtmlWebpackPlugin({
-            template: utils.resolvePath('index.html'),
-			filename: 'index.html',
-			inject: true
-        })
     ],
     devtool: '#cheap-module-eval-source-map'
 })
