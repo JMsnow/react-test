@@ -1,4 +1,5 @@
 import React from 'react'
+import min from '@/assets/images/min.svg'
 import './style.scss'
 import request from '@/utils/request'
 
@@ -10,7 +11,10 @@ class Login extends React.Component {
 
     render() {
         return (
-            <div className='red'>登录模块</div>
+            <div className='red'>
+                <img src={min} />
+                登录模块
+            </div>
         )
     }
 }

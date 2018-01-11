@@ -7,5 +7,6 @@ const SERVERS = {
 
 module.exports = {
     publicPath: '/',
-    host: SERVERS[process.env.NODE_ENV]
+	host: SERVERS[process.env.NODE_ENV],
+	inlineFileLimit:8192
 }

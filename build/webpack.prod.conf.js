@@ -1,7 +1,7 @@
 const webpack = require('webpack')
 const merge = require('webpack-merge')
 const baseWebpackConf = require('./webpack.base.conf')
-const CONFIG = require('./config')
+const config = require('./config')
 const utils = require('./utils')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
 
@@ -9,7 +9,7 @@ module.exports = merge(baseWebpackConf, {
     output: {
         filename: '[name]-[hash].js',
         path: utils.resolvePath('dist'),
-        publicPath: CONFIG.publicPath
+        publicPath: config.publicPath
     },
     plugins: [
         new CleanWebpackPlugin(utils.resolvePath('dist/*.*'), {

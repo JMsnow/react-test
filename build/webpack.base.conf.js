@@ -27,7 +27,19 @@ module.exports = {
                     use: [{loader: "css-loader"},{loader: "sass-loader"}],
                     fallback: "style-loader"
                 })
-            }
+            },
+            {
+				test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
+                use: [
+                    {
+                        loader: 'url-loader',
+                        options: { 
+                            limit: config.inlineFileLimit,
+                            name: 'assets/images/[name].[hash:7].[ext]'
+                        }
+                    }
+                ]
+			}
         ]
     },
     plugins: [
