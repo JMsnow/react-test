@@ -1,9 +1,14 @@
+import axios from 'axios'
 import CONFIG from '@/config/config'
 
-const request = {
-    getHost() {
-        return CONFIG.HOST
-    }
+const requestConfig = {
+	baseURL: CONFIG.HOST,
+    headers: {
+	    'Connection': 'Keep-Alive'
+    },
+	timeout: 30000
 }
 
-export default request
+const $http = axios.create(requestConfig)
+
+export default $http

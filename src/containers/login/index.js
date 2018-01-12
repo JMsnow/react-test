@@ -1,11 +1,10 @@
 import React from 'react'
 import min from '@/assets/images/min.svg'
 import style from './style.scss'
-import request from '@/utils/request'
 
 class Login extends React.Component {
     componentWillMount() {
-        console.log(request.getHost())
+        
     }
 
     render() {
