@@ -29,7 +29,16 @@ module.exports = {
                 test: /\.(css|scss)$/,
                 exclude: /node_modules/,
                 use: extractSass.extract({
-                    use: [{loader: "css-loader"},{loader: "sass-loader"}],
+                    use: [
+                        {
+                            loader: "css-loader",
+                            options: {
+                                modules: config.isCssModules,
+                                localIdentName: '[path][name]__[local]--[hash:base64:5]'
+                            }
+                        },
+                        {loader: "sass-loader"}
+                    ],
                     fallback: "style-loader"
                 })
             },

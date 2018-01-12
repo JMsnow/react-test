@@ -1,18 +1,13 @@
 const webpack = require('webpack')
 const merge = require('webpack-merge')
 const utils = require('./utils')
+const config = require('./config')
 const baseWebpackConf = require('./webpack.base.conf.js')
 const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = merge(baseWebpackConf, {
-    devServer: {
-        host: '0.0.0.0',
-		hot: true,
-		inline: true,
-        port: 9000,
-        stats: "errors-only"
-    },
+    devServer: config.devServer,
     plugins: [
         new FriendlyErrorsWebpackPlugin(),
         new webpack.HotModuleReplacementPlugin(),
