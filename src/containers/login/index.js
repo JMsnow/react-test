@@ -4,7 +4,9 @@ import style from './style.scss'
 
 class Login extends React.Component {
     componentWillMount() {
-        
+        $http.post('/login')
+            .then(res => console.log(res) )
+            .catch(() => console.log('error'))
     }
 
     render() {

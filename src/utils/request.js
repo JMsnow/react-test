@@ -3,9 +3,6 @@ import CONFIG from '@/config/config'
 
 const requestConfig = {
 	baseURL: CONFIG.HOST,
-    headers: {
-	    'Connection': 'Keep-Alive'
-    },
 	timeout: 30000
 }
 
