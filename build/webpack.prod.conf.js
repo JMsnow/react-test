@@ -4,15 +4,11 @@ const baseWebpackConf = require('./webpack.base.conf')
 const config = require('./config')
 const utils = require('./utils')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = merge(baseWebpackConf, {
-    output: {
-        filename: '[name]-[hash].js',
-        path: utils.resolvePath('dist'),
-        publicPath: config.publicPath
-    },
     plugins: [
-        new CleanWebpackPlugin(utils.resolvePath('dist/*.*'), {
+        new CleanWebpackPlugin(utils.resolvePath('dist/*'), {
             root: utils.resolvePath('')
         }),
         new webpack.optimize.UglifyJsPlugin({
@@ -21,6 +17,16 @@ module.exports = merge(baseWebpackConf, {
 			},
 			comments: false,
 			sourceMap: true
+        }),
+        new HtmlWebpackPlugin({
+			template: utils.resolvePath('index.html'),
+			inject: true,
+			minify: {
+				removeComments: true,
+				collapseWhitespace: true,
+				removeAttributeQuotes: true
+			},
+			chunksSortMode: 'dependency'
 		})
     ],
     devtool: '#source-map'

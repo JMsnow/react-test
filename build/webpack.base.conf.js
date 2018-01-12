@@ -1,17 +1,22 @@
 const webpack = require('webpack')
 const utils = require('./utils')
 const config = require('./config')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
 const ExtractTextPlugin = require("extract-text-webpack-plugin")
 
 const extractSass = new ExtractTextPlugin({
-    filename: "[name].[contenthash].css",
+    filename: "css/[name].[contenthash].css",
     disable: process.env.NODE_ENV === "development"
 });
 
 module.exports = {
     entry: {
-        app: ['babel-polyfill', utils.resolvePath('src/app.js')]
+        app: ['babel-polyfill', utils.resolvePath('src/app.js')],
+        vendor: ['react', 'react-dom']
+    },
+    output: {
+        filename: 'js/[name].[hash].js',
+        path: utils.resolvePath('dist'),
+        publicPath: config.publicPath
     },
     module: {
         rules: [
@@ -43,14 +48,11 @@ module.exports = {
         ]
     },
     plugins: [
-        new webpack.DefinePlugin({
-			HOST: JSON.stringify(config.host)
+        new webpack.EnvironmentPlugin({ NODE_ENV: process.env.NODE_ENV }),
+        new webpack.optimize.CommonsChunkPlugin({
+            name: "vendor",
+            minChunks: 3
 		}),
-        new HtmlWebpackPlugin({
-            template: utils.resolvePath('index.html'),
-			filename: 'index.html',
-			inject: true
-        }),
         extractSass
     ],
     resolve: {
