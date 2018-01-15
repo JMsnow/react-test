@@ -21,6 +21,15 @@ module.exports = {
     module: {
         rules: [
             {
+				enforce: 'pre',
+				test: /\.(js|jsx)$/,
+				loader: 'eslint-loader',
+				include: [
+					utils.resolvePath('src'),
+					utils.resolvePath('build')
+				]
+			},
+            {
                 test: /\.js[x]?$/,
                 exclude: /node_modules/,
                 use: ['babel-loader']
