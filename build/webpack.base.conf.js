@@ -20,15 +20,15 @@ module.exports = {
     },
     module: {
         rules: [
-            {
-				enforce: 'pre',
-				test: /\.(js|jsx)$/,
-				loader: 'eslint-loader',
-				include: [
-					utils.resolvePath('src'),
-					utils.resolvePath('build')
-				]
-			},
+            // {
+			// 	enforce: 'pre',
+			// 	test: /\.(js|jsx)$/,
+			// 	loader: 'eslint-loader',
+			// 	include: [
+			// 		utils.resolvePath('src'),
+			// 		utils.resolvePath('build')
+			// 	]
+			// },
             {
                 test: /\.js[x]?$/,
                 exclude: /node_modules/,
@@ -56,7 +56,7 @@ module.exports = {
                 use: [
                     {
                         loader: 'url-loader',
-                        options: { 
+                        options: {
                             limit: config.inlineFileLimit,
                             name: 'assets/images/[name].[hash:7].[ext]'
                         }

@@ -21,7 +21,7 @@
 		"ACTIONIDS_CMD": false,
 		"debug": false,
 		"utils": false,
-		"request": false,
+		"$http": false,
 		"helper": false,
 		"window": false
 	},

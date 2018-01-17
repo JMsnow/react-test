@@ -1,9 +1,17 @@
 import React from 'react'
+import { createStore } from 'redux'
+import { Provider } from 'react-redux'
 import ReactDom from 'react-dom'
 import '@/global'
 
-import './css/app.scss'
+import '@/css/app.scss'
 
-import Index from '../src/containers/index'
+import Index from '@/containers/index'
+import reducers from '@/redux/reducers'
 
-ReactDom.render(<Index />, document.getElementById('root'))
+const store = createStore(reducers)
+
+ReactDom.render(
+	<Provider store={store}><Index /></Provider>,
+	document.getElementById('root')
+)

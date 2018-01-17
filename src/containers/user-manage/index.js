@@ -1,13 +1,22 @@
 import React from 'react'
+import { connect } from 'react-redux'
 
-class UserManage extends React.Component{
-    render() {
-        return (
-            <div>
-                用户管理模块
-            </div>
-        )
-    }
+const mapStateToProps = (state) => {
+	return {
+		role: state.role
+	}
 }
 
-export default UserManage
+class UserManage extends React.Component {
+	render() {
+		return (
+			<div>
+				用户管理模块{this.props.role}
+			</div>
+		)
+	}
+}
+
+const wrapUserManage = connect(mapStateToProps)(UserManage)
+
+export default wrapUserManage
