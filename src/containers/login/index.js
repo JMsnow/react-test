@@ -1,13 +1,12 @@
 import React from 'react'
 import min from '@/assets/images/min.svg'
 import { connect } from 'react-redux'
+import * as actionCreators from '@/redux/actions'
 import style from './style.scss'
 
 class Login extends React.Component {
 	componentWillMount() {
-		$http.post('/login')
-			.then(res => debug.log(res))
-			.catch(() => debug.log('error'))
+
 	}
 
 	changeRole = () => {
@@ -29,6 +28,8 @@ class Login extends React.Component {
 	}
 }
 
-const wrapLogin = connect()(Login)
+const mapStateToProps = state => state
+const mapDispatchToProps = actionCreators
+const wrapLogin = connect(mapStateToProps, mapDispatchToProps)(Login)
 
 export default wrapLogin

@@ -1,10 +1,11 @@
 import * as actionTypes from './action-types'
 
-const updateRole = data => ({
+export const updateRole = data => ({
 	type: actionTypes.UPDATE_ROLE,
-	payLoad: data
+	role: data
 })
 
-export default {
-	updateRole
-}
+export const updateName = data => ({
+	type: actionTypes.UPDATE_NAME,
+	name: data
+})
